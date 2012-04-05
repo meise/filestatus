@@ -3,6 +3,7 @@ GEM
   specs:
     fssm (0.2.8.1)
     init (2.0.0)
+    rainbow (1.1.3)
     xmpp4r (0.5)
 
 PLATFORMS
@@ -11,4 +12,5 @@ PLATFORMS
 DEPENDENCIES
   fssm
   init
+  rainbow
   xmpp4r
