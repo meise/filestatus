@@ -1,0 +1,14 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    fssm (0.2.8.1)
+    init (2.0.0)
+    xmpp4r (0.5)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  fssm
+  init
+  xmpp4r
