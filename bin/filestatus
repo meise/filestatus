@@ -1,0 +1,19 @@
+#!/usr/lib/env ruby
+# encoding: utf-8
+
+require 'filestatus/version'
+require 'optparse'
+
+options = { }
+
+OptionParser.new do |opts|
+  opts.banner = "Usage: filestatus [options]"
+
+  opts.on("version", "Run verbosely") do |version|
+    options[:version] = version
+  end
+
+end.parse!
+
+p options
+p ARGV
