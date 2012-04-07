@@ -23,8 +23,5 @@ along with filestatus. If not, see <http://www.gnu.org/licenses/>.
 
 source 'https://rubygems.org'
 
-gem 'fssm'
-gem 'xmpp4r'
-
-gem 'init'
-gem 'rainbow'
+# Specify your gem's dependencies in namespace_helper.gemspec
+gemspec
