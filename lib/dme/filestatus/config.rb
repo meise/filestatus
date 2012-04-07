@@ -35,9 +35,12 @@ module Dme
 
       def self.create_config
         unless config_exist?
-          Dir.mkdir(@@config_file.dirname)
+          unless Dir.exist?(@@config_file.dirname)
+            Dir.mkdir(@@config_file.dirname)
+          end
+
           File.open(@@config_file, 'w') do |file|
-            File.open('examples/config.yml', 'r').each_line do |example_file|
+            File.open(Gem.datadir(Dme::Filestatus::NAME) + '/config.yml.example', 'r').each_line do |example_file|
               file << example_file
             end
           end
@@ -69,6 +72,7 @@ module Dme
         informants = []
 
         @@config['informants'].each do |informant|
+
           case informant['type']
             when /xmpp/
               informants << Dme::Filestatus::Xmpp.new(informant['account'], informant['password'], informant['recipients'])
