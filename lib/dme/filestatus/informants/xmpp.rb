@@ -4,30 +4,24 @@ module Dme
   module Filestatus
     class Xmpp
 
-      attr_accessor :client
+      attr_accessor :client, :recipients
 
-      def initialize
-        Jabber::debug = true
-        client        = Jabber::Client.new('3st@jabber.ccc.de/bot')
+      def initialize(account, password, recipients)
+        Jabber::debug  = true
+        @client        = Jabber::Client.new(account)
 
-        client.connect
-        client.auth
+        @recipients    = recipients
+        @password      = password
       end
 
       def send_notification(message)
-        receivers.each do |receiver|
+
+        @client.connect
+        @client.auth(@password)
+
+        @receivers.each do |receiver|
           client.send Jabber::Message.new(receiver, message)
         end
-      end
-
-      protected
-
-      def connect
-        client.connect
-      end
-
-      def auth
-        client.auth('password')
       end
     end
   end
