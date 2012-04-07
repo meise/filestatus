@@ -67,13 +67,14 @@ def parse(args)
   end
 
   if options[:version]
-    license = File.read(__FILE__)[/=begin\n(.*)\n=end/m, 1]
+    license = File.read(Gem.loaded_specs[Dme::Filestatus::NAME].full_gem_path + '/LICENSE.md')
 
     puts <<-VERSION
-Filestatus v#{Dme::Filestatus::VERSION}
+#{Dme::Filestatus::NAME} v#{Dme::Filestatus::VERSION}
 
 #{license}
     VERSION
+
     exit(0)
   end
 
