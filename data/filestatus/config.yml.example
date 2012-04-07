@@ -1,0 +1,19 @@
+informants:
+  - type: xmpp
+    account: filestatus@jabber.foo.baz/bot
+    password: foobar
+    recipients: ['meise@jabber.ccc.de']
+
+  - type: mail
+    from: Filestatus <filestatus@foo.baz>
+    account: filestatus
+    password: foobar
+    smtp-server: mail.foo.baz
+    recipients: ['lula@foo.bar']
+
+directories:
+  - dir:  /etc/
+    files: ['passwd', 'groups']
+
+  - dir: /home/fb/.filestatus/
+    files: ['config.yml']
