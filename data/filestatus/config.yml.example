@@ -2,7 +2,7 @@ informants:
   - type: xmpp
     account: filestatus@jabber.foo.baz/bot
     password: foobar
-    recipients: ['meise@jabber.ccc.de']
+    recipients: ['foo@baz.fn']
 
   - type: mail
     from: Filestatus <filestatus@foo.baz>
