@@ -4,14 +4,14 @@ module Dme
   module Filestatus
     class Command
 
-      # Converts the object into textual markup given a specific format.
-      #
-      # @param [Hash]
       def run(opts)
-        puts "#{Gem.datadir(Dme::Filestatus::NAME) + '/config.yml.example'}"
 
         case opts[:command]
           when /start/
+            if opts[:daemonize]
+              Daemons.daemonize({:app_name => Dme::Filestatus::NAME, :dir_mode => :system})
+            end
+
             Dme::Filestatus::Monitor.new.control(Dme::Filestatus::Config.directories)
           when /stop/
             # stop
