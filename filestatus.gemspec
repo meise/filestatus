@@ -26,12 +26,13 @@ been changed.
 
   gem.required_ruby_version = '>= 1.9.2'
 
+  gem.add_dependency('daemons', '~> 1.1.8')
+  gem.add_dependency('xmpp4r', '~> 0.5')
+  gem.add_dependency('fssm', '~> 0.2.8.1')
+  gem.add_dependency('rainbow', '~> 1.1.3')
+
   gem.add_development_dependency('bundler', '~> 1.1.0')
   gem.add_development_dependency('rake', '~> 0.9.2')
-  gem.add_development_dependency('daemons', '~> 1.1.8')
   gem.add_development_dependency('rspec', '~> 2.9.0')
-  gem.add_development_dependency('xmpp4r', '~> 0.5')
-  gem.add_development_dependency('fssm', '~> 0.2.8.1')
-  gem.add_development_dependency('rainbow', '~> 1.1.3')
   gem.add_development_dependency('simplecov', '~> 0.6.1')
 end
