@@ -52,9 +52,9 @@ module Dme
           license = File.read(Gem.loaded_specs[Dme::Filestatus::NAME].full_gem_path + '/LICENSE.md')
 
           puts <<-VERSION
-      #{Dme::Filestatus::NAME} v#{Dme::Filestatus::VERSION}
+#{Dme::Filestatus::NAME} v#{Dme::Filestatus::VERSION}
 
-      #{license}
+#{license}
           VERSION
 
           exit(0)
@@ -81,12 +81,11 @@ module Dme
         end
       end
 
-      def self.run(opts)
-        command  = Dme::Filestatus::Command.new
+      def self.start_application(opts)
         @@config = Dme::Filestatus::Config.init(opts[:config])
 
         begin
-          command.run(opts)
+          Dme::Filestatus::Command.run(opts)
         rescue SystemExit
           # do nothing
         rescue Exception => e

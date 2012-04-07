@@ -2,9 +2,9 @@ require 'daemons'
 
 module Dme
   module Filestatus
-    class Command
+    module Command
 
-      def run(opts)
+      def self.run(opts)
 
         case opts[:command]
           when /start/
