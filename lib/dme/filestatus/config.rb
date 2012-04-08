@@ -7,8 +7,11 @@ module Dme
   module Filestatus
     module Config
 
-      def self.init(config_file)
-        @@config_file = Pathname(config_file) || Pathname(ENV['HOME'] + '/.filestatus/config.yml')
+      def self.init(opts)
+        @@pid_file    = Pathname(opts[:pid])
+        @@log_file    = Pathname(opts[:log])
+
+        @@config_file = Pathname(opts[:config]) || Pathname(ENV['HOME'] + '/.filestatus/config.yml')
         @@config_dir  = @@config_file.dirname
 
         if config_exist?
@@ -38,6 +41,14 @@ module Dme
 
       def self.config_dir
         @@config_dir
+      end
+
+      def self.pid_file
+        @@pid_file
+      end
+
+      def self.log_file
+        @@log_file
       end
 
       protected

@@ -20,12 +20,12 @@ module Dme
           end
 
           options[:log] = ENV['HOME'] + '/.filestatus/filestatus.log'
-          opts.on('-l', '--log FILE', 'File to redirect output (default: ~/.filestatus/filestatus.log)') do |log|
+          opts.on('-l', '--log FILE', 'Directory to redirect output (default: ~/.filestatus/filestatus.log)') do |log|
             options[:log] = log
           end
 
           options[:pid] = ENV['HOME'] + '/.filestatus/filestatus.pid'
-          opts.on('-P', '--pid FILE', 'File to store PID (default: ~/.filestatus/pid/filestatus.pid)') do |pid|
+          opts.on('-P', '--pid FILE', 'Directory to store PID (default: ~/.filestatus/filestatus.pid)') do |pid|
             options[:pid] = pid
           end
 
@@ -82,7 +82,7 @@ module Dme
       end
 
       def self.start_application(opts)
-        @@config = Dme::Filestatus::Config.init(opts[:config])
+        @@config = Dme::Filestatus::Config.init(opts)
 
         begin
           Dme::Filestatus::Command.run(opts)
