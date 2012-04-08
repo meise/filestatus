@@ -9,6 +9,7 @@ module Dme
 
       def self.init(config_file)
         @@config_file = Pathname(config_file) || Pathname(ENV['HOME'] + '/.filestatus/config.yml')
+        @@config_dir  = @@config_file.dirname
 
         if config_exist?
           parse
@@ -31,12 +32,20 @@ module Dme
         @@informants
       end
 
+      def self.config_file
+        @@config_file
+      end
+
+      def self.config_dir
+        @@config_dir
+      end
+
       protected
 
       def self.create_config
         unless config_exist?
-          unless Dir.exist?(@@config_file.dirname)
-            Dir.mkdir(@@config_file.dirname)
+          unless Dir.exist?(@@config_dir)
+            Dir.mkdir(@@config_dir)
           end
 
           File.open(@@config_file, 'w') do |file|
